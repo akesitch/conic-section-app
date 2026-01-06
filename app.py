@@ -30,6 +30,21 @@ elif mode == "วงรี":
     y = k + b * np.sin(theta)
     st.latex(rf"\frac{{(x - {h})^2}}{{{a}^2}} + \frac{{(y - {k})^2}}{{{b}^2}} = 1")
 
+elif mode == "ไฮเพอร์โบลา":
+    a = st.sidebar.slider("ค่า a", 1, 10, 5)
+    b = st.sidebar.slider("ค่า b", 1, 10, 3)
+    # สร้างกราฟสองฝั่ง (Branches)
+    t = np.linspace(-2, 2, 100)
+    x = h + a * np.cosh(t)
+    y = k + b * np.sinh(t)
+    x2 = h - a * np.cosh(t)
+    y2 = k - b * np.sinh(t)
+    
+    # วาดทั้งสองเส้น
+    ax.plot(x, y, color='red', linewidth=2)
+    ax.plot(x2, y2, color='red', linewidth=2)
+    st.latex(rf"\frac{{(x - {h})^2}}{{{a}^2}} - \frac{{(y - {k})^2}}{{{b}^2}} = 1")
+
 # 4. การแสดงผลกราฟ
 ax.plot(x, y, color='indigo', linewidth=2)
 ax.axhline(0, color='black', lw=1)
@@ -38,5 +53,6 @@ ax.grid(True, linestyle='--')
 ax.set_xlim(-15, 15)
 ax.set_ylim(-15, 15)
 ax.set_aspect('equal')
+
 
 st.pyplot(fig)
