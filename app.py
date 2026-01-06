@@ -30,7 +30,7 @@ elif mode == "วงรี":
     y = k + b * np.sin(theta)
     st.latex(rf"\frac{{(x - {h})^2}}{{{a}^2}} + \frac{{(y - {k})^2}}{{{b}^2}} = 1")
 
-elif mode == "ไฮเพอร์โบลา":
+elif mode == "พาราโบลา":
     a = st.sidebar.slider("ค่า a", 1, 10, 5)
     b = st.sidebar.slider("ค่า b", 1, 10, 3)
     # สร้างกราฟสองฝั่ง (Branches)
@@ -56,3 +56,4 @@ ax.set_aspect('equal')
 
 
 st.pyplot(fig)
+
